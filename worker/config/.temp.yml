@@ -1,0 +1,11 @@
+connection:
+  access_token: NWVhMTFiZTktYmU5NS01NDNkLWU0ZDItZTg1MS0yNmJlMzQwNzo1YTlmMjhhMC04NTFjLTExZWEtOGJjZC01ZDNlMmQ1ZDc1NTQ=
+  master_host: apimation.com:9000
+worker:
+  type: loc
+  port: 9675
+  job_limit: 200
+  debug: false
+  dev: false
+  logOnlyToFile: true
+  log_path: /home/wafa/Desktop/smoke test/StoreAPISmokeTest/worker/logs/worker
