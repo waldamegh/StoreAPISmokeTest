@@ -1,0 +1,2 @@
+# StoreAPISmokeTest
+API Smoke Test
