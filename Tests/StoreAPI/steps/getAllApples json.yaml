@@ -1,0 +1,13 @@
+test: step
+name: getAllApples json
+collection:
+  name: StoreAPI
+method: GET
+url: $baseURL/boxes/$boxId/apples
+headers:
+  X-Client-Project: $x_client_project
+asserts:
+- type: status
+  expected: "200"
+  operator: regex
+requestTimeout: 0

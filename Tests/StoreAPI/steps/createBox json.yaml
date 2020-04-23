@@ -1,0 +1,49 @@
+test: step
+name: createBox json
+collection:
+  name: StoreAPI
+method: POST
+url: $baseURL/boxes
+type: raw
+body: |-
+  {
+       "boxId": "$boxId",
+       "capactiy": "$capactiy",
+       "deliveryAddress": "$deliveryAddress",
+       "email": "$email",
+       "name": "$name"
+   }
+greps:
+- varname: $boxId
+  type: json
+  expression: $.boxId
+  listname: $boxIdList
+- varname: $capactiy
+  type: json
+  expression: $.capactiy
+  listname: $capactiyList
+- varname: $deliveryAddress
+  type: json
+  expression: $.deliveryAddress
+  listname: $deliveryAddressList
+- varname: $email
+  type: json
+  expression: $.email
+  listname: $emailList
+- varname: $name
+  type: json
+  expression: $.name
+  listname: $nameList
+asserts:
+- type: status
+  expected: "201"
+  operator: regex
+- key: $.name
+  type: json
+  expected: $name
+  operator: eq
+- key: $.capactiy
+  type: json
+  expected: $capactiy
+  operator: eq
+requestTimeout: 0

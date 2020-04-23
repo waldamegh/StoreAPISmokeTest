@@ -1,0 +1,21 @@
+test: case
+name: bananas CRUD json
+description: <insert description of test case>
+casedetails:
+  vars:
+    $calories: $genInteger(34,566)
+    $color: $genString(9)
+    $id: $genString(6)
+    $isRipe: $genString(5)
+    $length: $genString(7)
+    $name: $genString(8)
+  defaultCollection: StoreAPI
+  steps:
+  - name: createBanana json
+    requestTimeout: 0
+  - name: getBanana json
+    requestTimeout: 0
+  - name: updateBanana json
+    requestTimeout: 0
+  - name: deleteBanana json
+    requestTimeout: 0

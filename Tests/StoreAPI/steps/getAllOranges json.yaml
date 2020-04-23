@@ -1,0 +1,11 @@
+test: step
+name: getAllOranges json
+collection:
+  name: StoreAPI
+method: GET
+url: $baseURL/oranges
+asserts:
+- type: status
+  expected: "200"
+  operator: regex
+requestTimeout: 0

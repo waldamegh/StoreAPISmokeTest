@@ -1,0 +1,44 @@
+test: step
+name: createOrange json
+collection:
+  name: StoreAPI
+method: POST
+url: $baseURL/oranges
+type: raw
+body: |-
+  {
+       "color": "$color",
+       "diameter": "$diameter",
+       "id": "$id",
+       "name": "$name"
+   }
+greps:
+- varname: $color
+  type: json
+  expression: $.color
+  listname: $colorList
+- varname: $diameter
+  type: json
+  expression: $.diameter
+  listname: $diameterList
+- varname: $id
+  type: json
+  expression: $.id
+  listname: $idList
+- varname: $name
+  type: json
+  expression: $.name
+  listname: $nameList
+asserts:
+- type: status
+  expected: "201"
+  operator: regex
+- key: $.name
+  type: json
+  expected: $name
+  operator: eq
+- key: $.diameter
+  type: json
+  expected: $diameter
+  operator: eq
+requestTimeout: 0

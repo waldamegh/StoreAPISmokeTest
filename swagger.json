@@ -1,0 +1,1243 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "API for SIGNAL 2018",
+    "title": "StoreAPI",
+    "version": "v0.1.0"
+  },
+  "host": "localhost",
+  "paths": {
+    "/bananas": {
+      "get": {
+        "description": "Handler to get all test bananas",
+        "operationId": "getAllBananas",
+        "responses": {
+          "200": {
+            "description": "bananas",
+            "schema": {
+              "$ref": "#/definitions/bananas"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Handler to create banana",
+        "operationId": "createBanana",
+        "parameters": [
+          {
+            "description": "Banana body",
+            "name": "Banana",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/banana"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "banana",
+            "schema": {
+              "$ref": "#/definitions/banana"
+            }
+          },
+          "400": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/bananas/{id}": {
+      "get": {
+        "description": "Handler to get test banana",
+        "operationId": "getBanana",
+        "responses": {
+          "200": {
+            "description": "banana",
+            "schema": {
+              "$ref": "#/definitions/banana"
+            }
+          },
+          "404": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Handler to update test banana",
+        "operationId": "updateBanana",
+        "parameters": [
+          {
+            "description": "Banana body",
+            "name": "Banana",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/banana"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "banana",
+            "schema": {
+              "$ref": "#/definitions/banana"
+            }
+          },
+          "400": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Handler to delete banana",
+        "operationId": "deleteBanana",
+        "responses": {
+          "204": {
+            "$ref": "#/responses/noContent"
+          },
+          "404": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/boxes": {
+      "get": {
+        "description": "Handler to get all test boxes",
+        "operationId": "getAllBoxes",
+        "responses": {
+          "200": {
+            "description": "boxes",
+            "schema": {
+              "$ref": "#/definitions/boxes"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Handler to create box",
+        "operationId": "createBox",
+        "parameters": [
+          {
+            "description": "Box body",
+            "name": "Box",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/box"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "box",
+            "schema": {
+              "$ref": "#/definitions/box"
+            }
+          },
+          "400": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/boxes/{boxId}": {
+      "get": {
+        "description": "Handler to get test box",
+        "operationId": "getBox",
+        "responses": {
+          "200": {
+            "description": "box",
+            "schema": {
+              "$ref": "#/definitions/box"
+            }
+          },
+          "404": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Handler to update test box",
+        "operationId": "updateBox",
+        "parameters": [
+          {
+            "description": "Box body",
+            "name": "Box",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/box"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "box",
+            "schema": {
+              "$ref": "#/definitions/box"
+            }
+          },
+          "400": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Handler to delete box",
+        "operationId": "deleteBox",
+        "responses": {
+          "204": {
+            "$ref": "#/responses/noContent"
+          },
+          "404": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/boxes/{boxId}/apples": {
+      "get": {
+        "description": "Handler to get all test apples",
+        "operationId": "getAllApples",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "XClientProject",
+            "description": "Project token",
+            "name": "X-Client-Project",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "apples",
+            "schema": {
+              "$ref": "#/definitions/apples"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Handler to create apple",
+        "operationId": "createApple",
+        "parameters": [
+          {
+            "description": "Apple body",
+            "name": "Apple",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apple"
+            }
+          },
+          {
+            "type": "string",
+            "x-go-name": "XClientToken",
+            "description": "CLient token",
+            "name": "X-Client-Token",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "XClientProject",
+            "description": "Project token",
+            "name": "X-Client-Project",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "apple",
+            "schema": {
+              "$ref": "#/definitions/apple"
+            }
+          },
+          "400": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/boxes/{boxId}/apples/{appleId}": {
+      "get": {
+        "description": "Handler to get test apple",
+        "operationId": "getApple",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "XClientToken",
+            "description": "CLient token",
+            "name": "X-Client-Token",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "XClientProject",
+            "description": "Project token",
+            "name": "X-Client-Project",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "apple",
+            "schema": {
+              "$ref": "#/definitions/apple"
+            }
+          },
+          "404": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Handler to update test apple",
+        "operationId": "updateApple",
+        "parameters": [
+          {
+            "description": "Apple body",
+            "name": "Apple",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apple"
+            }
+          },
+          {
+            "type": "string",
+            "x-go-name": "XClientToken",
+            "description": "CLient token",
+            "name": "X-Client-Token",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "XClientProject",
+            "description": "Project token",
+            "name": "X-Client-Project",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "apple",
+            "schema": {
+              "$ref": "#/definitions/apple"
+            }
+          },
+          "400": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Handler to delete apple",
+        "operationId": "deleteApple",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "XClientToken",
+            "description": "CLient token",
+            "name": "X-Client-Token",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "XClientProject",
+            "description": "Project token",
+            "name": "X-Client-Project",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/responses/noContent"
+          },
+          "404": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/calls": {
+      "get": {
+        "description": "Handler to get all test calls",
+        "operationId": "getAllCalls",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "XClientToken",
+            "description": "CLient token",
+            "name": "X-Client-Token",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "XClientProject",
+            "description": "Project token",
+            "name": "X-Client-Project",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "testCalls",
+            "schema": {
+              "$ref": "#/definitions/testCalls"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Handler to create test call",
+        "operationId": "createCall",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "XClientToken",
+            "description": "CLient token",
+            "name": "X-Client-Token",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "XClientProject",
+            "description": "Project token",
+            "name": "X-Client-Project",
+            "in": "header",
+            "required": true
+          },
+          {
+            "description": "Call log body",
+            "name": "CallLog",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/testCall"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "testCall",
+            "schema": {
+              "$ref": "#/definitions/testCall"
+            }
+          },
+          "400": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/calls/{id}": {
+      "get": {
+        "description": "Handler to get test call",
+        "operationId": "getCall",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "XClientToken",
+            "description": "CLient token",
+            "name": "X-Client-Token",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "XClientProject",
+            "description": "Project token",
+            "name": "X-Client-Project",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "testCall",
+            "schema": {
+              "$ref": "#/definitions/testCall"
+            }
+          },
+          "404": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Handler to update test call",
+        "operationId": "updateCall",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "XClientToken",
+            "description": "CLient token",
+            "name": "X-Client-Token",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "XClientProject",
+            "description": "Project token",
+            "name": "X-Client-Project",
+            "in": "header",
+            "required": true
+          },
+          {
+            "description": "Call log body",
+            "name": "CallLog",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/testCall"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "testCall",
+            "schema": {
+              "$ref": "#/definitions/testCall"
+            }
+          },
+          "400": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Handler to delete test call",
+        "operationId": "deleteCall",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "XClientToken",
+            "description": "CLient token",
+            "name": "X-Client-Token",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "XClientProject",
+            "description": "Project token",
+            "name": "X-Client-Project",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/responses/noContent"
+          },
+          "404": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/oranges": {
+      "get": {
+        "description": "Handler to get all test oranges",
+        "operationId": "getAllOranges",
+        "responses": {
+          "200": {
+            "description": "oranges",
+            "schema": {
+              "$ref": "#/definitions/oranges"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Handler to create orange",
+        "operationId": "createOrange",
+        "parameters": [
+          {
+            "description": "Orange body",
+            "name": "Orange",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orange"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "orange",
+            "schema": {
+              "$ref": "#/definitions/orange"
+            }
+          },
+          "400": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/oranges/{id}": {
+      "get": {
+        "description": "Handler to get test orange",
+        "operationId": "getOrange",
+        "responses": {
+          "200": {
+            "description": "orange",
+            "schema": {
+              "$ref": "#/definitions/orange"
+            }
+          },
+          "404": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Handler to update test orange",
+        "operationId": "updateOrange",
+        "parameters": [
+          {
+            "description": "Orange body",
+            "name": "Orange",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orange"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "orange",
+            "schema": {
+              "$ref": "#/definitions/orange"
+            }
+          },
+          "400": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Handler to delete orange",
+        "operationId": "deleteOrange",
+        "responses": {
+          "204": {
+            "$ref": "#/responses/noContent"
+          },
+          "404": {
+            "description": "errorResponse",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "H": {
+      "description": "H is a shortcut for map[string]interface{}",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object"
+      },
+      "x-go-package": "github.com/gin-gonic/gin"
+    },
+    "XClientProject": {
+      "type": "object",
+      "required": [
+        "X-Client-Project"
+      ],
+      "properties": {
+        "X-Client-Project": {
+          "description": "Project token",
+          "type": "string",
+          "x-go-name": "XClientProject"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testapi/resources/calls"
+    },
+    "XClientToken": {
+      "type": "object",
+      "required": [
+        "X-Client-Token"
+      ],
+      "properties": {
+        "X-Client-Token": {
+          "description": "CLient token",
+          "type": "string",
+          "x-go-name": "XClientToken"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testapi/resources/calls"
+    },
+    "apple": {
+      "type": "object",
+      "required": [
+        "name",
+        "weight"
+      ],
+      "properties": {
+        "appleId": {
+          "description": "apple appleId",
+          "type": "string",
+          "x-go-name": "ID"
+        },
+        "color": {
+          "description": "apple color",
+          "type": "string",
+          "x-go-name": "Color"
+        },
+        "name": {
+          "description": "apple name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "weight": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Weight"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "appleBody": {
+      "type": "object",
+      "required": [
+        "Apple"
+      ],
+      "properties": {
+        "Apple": {
+          "$ref": "#/definitions/apple"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "apples": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/genericApple"
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "banana": {
+      "type": "object",
+      "required": [
+        "name",
+        "id"
+      ],
+      "properties": {
+        "calories": {
+          "description": "banana calories",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Calories"
+        },
+        "color": {
+          "description": "banana color",
+          "type": "string",
+          "x-go-name": "Color"
+        },
+        "id": {
+          "description": "banana id",
+          "type": "string",
+          "x-go-name": "ID"
+        },
+        "isRipe": {
+          "description": "banana isRipe",
+          "type": "string",
+          "x-go-name": "IsRipe"
+        },
+        "length": {
+          "description": "banana length",
+          "type": "string",
+          "x-go-name": "Length"
+        },
+        "name": {
+          "description": "banana name",
+          "type": "string",
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "bananaBody": {
+      "type": "object",
+      "required": [
+        "Banana"
+      ],
+      "properties": {
+        "Banana": {
+          "$ref": "#/definitions/banana"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "bananas": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/genericBanana"
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "box": {
+      "type": "object",
+      "required": [
+        "name",
+        "capactiy"
+      ],
+      "properties": {
+        "boxId": {
+          "description": "box boxId",
+          "type": "string",
+          "x-go-name": "ID"
+        },
+        "capactiy": {
+          "type": "string",
+          "x-go-name": "Capacity"
+        },
+        "deliveryAddress": {
+          "description": "box address",
+          "type": "string",
+          "x-go-name": "DeliveryAddress"
+        },
+        "email": {
+          "description": "box email",
+          "type": "string",
+          "x-go-name": "Email"
+        },
+        "name": {
+          "description": "box name",
+          "type": "string",
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "boxBody": {
+      "type": "object",
+      "required": [
+        "Box"
+      ],
+      "properties": {
+        "Box": {
+          "$ref": "#/definitions/box"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "boxes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/genericBox"
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "callBody": {
+      "type": "object",
+      "required": [
+        "CallLog"
+      ],
+      "properties": {
+        "CallLog": {
+          "$ref": "#/definitions/testCall"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testapi/resources/calls"
+    },
+    "errorResponse": {
+      "description": "Error Response",
+      "$ref": "#/definitions/H"
+    },
+    "genericApple": {
+      "type": "object",
+      "required": [
+        "name",
+        "weight"
+      ],
+      "properties": {
+        "appleId": {
+          "description": "apple appleId",
+          "type": "string",
+          "x-go-name": "ID"
+        },
+        "color": {
+          "description": "apple color",
+          "type": "string",
+          "x-go-name": "Color"
+        },
+        "creationDate": {
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "CreationDate"
+        },
+        "name": {
+          "description": "apple name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "weight": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Weight"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "genericBanana": {
+      "type": "object",
+      "required": [
+        "name",
+        "id"
+      ],
+      "properties": {
+        "calories": {
+          "description": "banana calories",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Calories"
+        },
+        "color": {
+          "description": "banana color",
+          "type": "string",
+          "x-go-name": "Color"
+        },
+        "creationDate": {
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "CreationDate"
+        },
+        "id": {
+          "description": "banana id",
+          "type": "string",
+          "x-go-name": "ID"
+        },
+        "isRipe": {
+          "description": "banana isRipe",
+          "type": "string",
+          "x-go-name": "IsRipe"
+        },
+        "length": {
+          "description": "banana length",
+          "type": "string",
+          "x-go-name": "Length"
+        },
+        "name": {
+          "description": "banana name",
+          "type": "string",
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "genericBox": {
+      "type": "object",
+      "required": [
+        "name",
+        "capactiy"
+      ],
+      "properties": {
+        "boxId": {
+          "description": "box boxId",
+          "type": "string",
+          "x-go-name": "ID"
+        },
+        "capactiy": {
+          "type": "string",
+          "x-go-name": "Capacity"
+        },
+        "creationDate": {
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "CreationDate"
+        },
+        "deliveryAddress": {
+          "description": "box address",
+          "type": "string",
+          "x-go-name": "DeliveryAddress"
+        },
+        "email": {
+          "description": "box email",
+          "type": "string",
+          "x-go-name": "Email"
+        },
+        "name": {
+          "description": "box name",
+          "type": "string",
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "genericOrange": {
+      "type": "object",
+      "required": [
+        "name",
+        "diameter"
+      ],
+      "properties": {
+        "color": {
+          "description": "orange color",
+          "type": "string",
+          "x-go-name": "Color"
+        },
+        "creationDate": {
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "CreationDate"
+        },
+        "diameter": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Diameter"
+        },
+        "id": {
+          "description": "orange id",
+          "type": "string",
+          "x-go-name": "ID"
+        },
+        "name": {
+          "description": "orange name",
+          "type": "string",
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "genericTestCall": {
+      "type": "object",
+      "required": [
+        "name",
+        "description"
+      ],
+      "properties": {
+        "creationDate": {
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "CreationDate"
+        },
+        "description": {
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "destination": {
+          "description": "call log destination",
+          "type": "string",
+          "x-go-name": "Destination"
+        },
+        "id": {
+          "description": "call log id",
+          "type": "string",
+          "x-go-name": "ID"
+        },
+        "name": {
+          "description": "call log name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "source": {
+          "description": "call log source",
+          "type": "string",
+          "x-go-name": "Source"
+        },
+        "url": {
+          "description": "call log url",
+          "type": "string",
+          "x-go-name": "URL"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testapi/resources/calls"
+    },
+    "noContent": {
+      "description": "No content",
+      "type": "string",
+      "x-go-package": "code.tdlbox.com/apimation/testapi/resources/calls"
+    },
+    "orange": {
+      "type": "object",
+      "required": [
+        "name",
+        "diameter"
+      ],
+      "properties": {
+        "color": {
+          "description": "orange color",
+          "type": "string",
+          "x-go-name": "Color"
+        },
+        "diameter": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Diameter"
+        },
+        "id": {
+          "description": "orange id",
+          "type": "string",
+          "x-go-name": "ID"
+        },
+        "name": {
+          "description": "orange name",
+          "type": "string",
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "orangeBody": {
+      "type": "object",
+      "required": [
+        "Orange"
+      ],
+      "properties": {
+        "Orange": {
+          "$ref": "#/definitions/orange"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "oranges": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/genericOrange"
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testAPI/resources/store"
+    },
+    "testCall": {
+      "type": "object",
+      "required": [
+        "name",
+        "description"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "destination": {
+          "description": "call log destination",
+          "type": "string",
+          "x-go-name": "Destination"
+        },
+        "id": {
+          "description": "call log id",
+          "type": "string",
+          "x-go-name": "ID"
+        },
+        "name": {
+          "description": "call log name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "source": {
+          "description": "call log source",
+          "type": "string",
+          "x-go-name": "Source"
+        },
+        "url": {
+          "description": "call log url",
+          "type": "string",
+          "x-go-name": "URL"
+        }
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testapi/resources/calls"
+    },
+    "testCalls": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/genericTestCall"
+      },
+      "x-go-package": "code.tdlbox.com/apimation/testapi/resources/calls"
+    }
+  },
+  "responses": {
+    "error": {
+      "description": "Error Response"
+    },
+    "noContent": {
+      "description": "No content"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+test: case
+name: boxes CRUD json
+description: <insert description of test case>
+casedetails:
+  vars:
+    $appleId: $genString(9)
+    $boxId: $genString(6)
+    $capactiy: $genString(9)
+    $color: $genString(9)
+    $deliveryAddress: $genString(6)
+    $email: $genString(5)
+    $name: $genString(5)
+    $weight: $genInteger(20,995)
+  defaultCollection: StoreAPI
+  steps:
+  - name: createBox json
+    requestTimeout: 0
+  - name: getBox json
+    requestTimeout: 0
+  - name: updateBox json
+    requestTimeout: 0
+  - name: createApple json
+    requestTimeout: 0
+  - name: getApple json
+    requestTimeout: 0
+  - name: updateApple json
+    requestTimeout: 0
+  - name: deleteApple json
+    requestTimeout: 0
+  - name: deleteBox json
+    requestTimeout: 0

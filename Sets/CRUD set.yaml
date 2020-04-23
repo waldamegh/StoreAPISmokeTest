@@ -1,0 +1,10 @@
+test: set
+name: CRUD set
+description: StoreAPI Smoke Test Set
+cases:
+- bananas CRUD json
+- boxes CRUD json
+- calls CRUD json
+- oranges CRUD json
+parallel: false
+clientversion: ""

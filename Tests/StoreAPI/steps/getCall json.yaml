@@ -1,0 +1,47 @@
+test: step
+name: getCall json
+collection:
+  name: StoreAPI
+method: GET
+url: $baseURL/calls/$id
+headers:
+  X-Client-Project: $x_client_project
+  X-Client-Token: $x_client_token
+greps:
+- varname: $description
+  type: json
+  expression: $.description
+  listname: $descriptionList
+- varname: $destination
+  type: json
+  expression: $.destination
+  listname: $destinationList
+- varname: $id
+  type: json
+  expression: $.id
+  listname: $idList
+- varname: $name
+  type: json
+  expression: $.name
+  listname: $nameList
+- varname: $source
+  type: json
+  expression: $.source
+  listname: $sourceList
+- varname: $url
+  type: json
+  expression: $.url
+  listname: $urlList
+asserts:
+- type: status
+  expected: "200"
+  operator: regex
+- key: $.name
+  type: json
+  expected: $name
+  operator: eq
+- key: $.description
+  type: json
+  expected: $description
+  operator: eq
+requestTimeout: 0

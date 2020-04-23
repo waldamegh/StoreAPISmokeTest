@@ -1,0 +1,54 @@
+test: step
+name: updateBanana json
+collection:
+  name: StoreAPI
+method: PUT
+url: $baseURL/bananas/$id
+type: raw
+body: |-
+  {
+       "calories": "$calories",
+       "color": "$color",
+       "id": "$id",
+       "isRipe": "$isRipe",
+       "length": "$length",
+       "name": "$name"
+   }
+greps:
+- varname: $calories
+  type: json
+  expression: $.calories
+  listname: $caloriesList
+- varname: $color
+  type: json
+  expression: $.color
+  listname: $colorList
+- varname: $id
+  type: json
+  expression: $.id
+  listname: $idList
+- varname: $isRipe
+  type: json
+  expression: $.isRipe
+  listname: $isRipeList
+- varname: $length
+  type: json
+  expression: $.length
+  listname: $lengthList
+- varname: $name
+  type: json
+  expression: $.name
+  listname: $nameList
+asserts:
+- type: status
+  expected: "200"
+  operator: regex
+- key: $.name
+  type: json
+  expected: $name
+  operator: eq
+- key: $.id
+  type: json
+  expected: $id
+  operator: eq
+requestTimeout: 0

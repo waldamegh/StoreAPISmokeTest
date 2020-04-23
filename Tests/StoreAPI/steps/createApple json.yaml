@@ -1,0 +1,47 @@
+test: step
+name: createApple json
+collection:
+  name: StoreAPI
+method: POST
+url: $baseURL/boxes/$boxId/apples
+type: raw
+headers:
+  X-Client-Project: $x_client_project
+  X-Client-Token: $x_client_token
+body: |-
+  {
+       "appleId": "$appleId",
+       "color": "$color",
+       "name": "$name",
+       "weight": "$weight"
+   }
+greps:
+- varname: $appleId
+  type: json
+  expression: $.appleId
+  listname: $appleIdList
+- varname: $color
+  type: json
+  expression: $.color
+  listname: $colorList
+- varname: $name
+  type: json
+  expression: $.name
+  listname: $nameList
+- varname: $weight
+  type: json
+  expression: $.weight
+  listname: $weightList
+asserts:
+- type: status
+  expected: "201"
+  operator: regex
+- key: $.name
+  type: json
+  expected: $name
+  operator: eq
+- key: $.weight
+  type: json
+  expected: $weight
+  operator: eq
+requestTimeout: 0

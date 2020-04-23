@@ -1,0 +1,11 @@
+test: step
+name: deleteBox json
+collection:
+  name: StoreAPI
+method: DELETE
+url: $baseURL/boxes/$boxId
+asserts:
+- type: status
+  expected: "204"
+  operator: regex
+requestTimeout: 0

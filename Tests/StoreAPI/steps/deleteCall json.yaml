@@ -1,0 +1,14 @@
+test: step
+name: deleteCall json
+collection:
+  name: StoreAPI
+method: DELETE
+url: $baseURL/calls/$id
+headers:
+  X-Client-Project: $x_client_project
+  X-Client-Token: $x_client_token
+asserts:
+- type: status
+  expected: "204"
+  operator: regex
+requestTimeout: 0

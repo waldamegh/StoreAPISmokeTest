@@ -1,0 +1,19 @@
+test: case
+name: oranges CRUD json
+description: <insert description of test case>
+casedetails:
+  vars:
+    $color: $genString(5)
+    $diameter: $genInteger(46,585)
+    $id: $genString(5)
+    $name: $genString(5)
+  defaultCollection: StoreAPI
+  steps:
+  - name: createOrange json
+    requestTimeout: 0
+  - name: getOrange json
+    requestTimeout: 0
+  - name: updateOrange json
+    requestTimeout: 0
+  - name: deleteOrange json
+    requestTimeout: 0

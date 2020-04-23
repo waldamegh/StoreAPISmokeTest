@@ -1,0 +1,4 @@
+test: environment
+name: Local
+globalVars:
+  $baseURL: http://127.0.0.1:6969

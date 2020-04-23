@@ -1,0 +1,11 @@
+test: step
+name: deleteBanana json
+collection:
+  name: StoreAPI
+method: DELETE
+url: $baseURL/bananas/$id
+asserts:
+- type: status
+  expected: "204"
+  operator: regex
+requestTimeout: 0
